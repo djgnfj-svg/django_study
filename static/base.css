@@ -1,0 +1,16 @@
+.Review_logo {
+  font-family: "Style Script", cursive;
+}
+
+.Review_header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.Review_footer_button {
+  font-size: 1rem;
+}
+.Review_footer {
+  text-align: center;
+  margin-top: 2rem;
+}
