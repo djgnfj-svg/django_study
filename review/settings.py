@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-import os, environ
+import os
+import environ
+from django.urls.base import reverse_lazy
 
 env = environ.Env(
     # set casting, default value
@@ -24,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # reading .env file
 environ.Env.read_env(
-    env_file = os.path.join(BASE_DIR, '.env')
+    env_file=os.path.join(BASE_DIR, '.env')
 )
 
 # Quick-start development settings - unsuitable for production
@@ -140,3 +142,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = reverse_lazy('account:hello_world')
+LOGOUT_REDIRECT_URL = reverse_lazy('account:login')
