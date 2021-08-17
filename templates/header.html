@@ -5,7 +5,9 @@
 		<h1 class="Review_logo">Review</h1>
 	</div>
 	<div>
-		<span>nav1</span>
+		<a href="{% url 'articleapp:list' %}?next={{ request.path }} ">
+			<span>Articleapp</span>
+		</a>
 		<span>nav2</span>
 		<span>nav3</span>
 		{% if not user.is_authenticated %}
