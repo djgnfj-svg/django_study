@@ -7,6 +7,7 @@ from articleapp.models import Article
 from articleapp.forms import ArticleCreateionForm
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.list import ListView
 
 # Create your views here.
 
@@ -53,3 +54,10 @@ class ArticleDeleteView(DeleteView):
     context_object_name = 'target_article'
     success_url = reverse_lazy('articleapp:list')
     template_name = 'articleapp/delete.html'
+
+
+class ArticleListView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'articleapp/list.html'
+    paginate_by = 3
