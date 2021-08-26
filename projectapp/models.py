@@ -10,3 +10,6 @@ class Project(models.Model):
 
     created_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
+
+    def __str__(self) -> str:
+        return f'{self.pk} : {self.title}'
