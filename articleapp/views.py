@@ -6,7 +6,7 @@ from django.urls.base import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from articleapp.models import Article
-from articleapp.forms import ArticleCreateionForm
+from articleapp.forms import ArticleCreationForm
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, DeleteView, FormMixin, UpdateView
 from django.views.generic.list import ListView
@@ -18,7 +18,7 @@ from django.views.generic.list import ListView
 @method_decorator(login_required, 'post')
 class ArticleCreateView(CreateView):
     model = Article
-    form_class = ArticleCreateionForm
+    form_class = ArticleCreationForm
     template_name = 'articleapp/create.html'
 
     def form_valid(self, form):
@@ -42,7 +42,7 @@ class ArticleDetatilView(DetailView, FormMixin):
 @method_decorator(article_ownership_required, 'post')
 class ArticleUpdateView(UpdateView):
     model = Article
-    form_class = ArticleCreateionForm
+    form_class = ArticleCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/update.html'
 
